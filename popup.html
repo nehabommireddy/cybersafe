@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberSafe</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2.5l7 3v5c0 4.6-3 8.3-7 11-4-2.7-7-6.4-7-11v-5l7-3z" fill="#18A999"/>
+        <path d="M8.5 12.2l2.4 2.4 4.6-5" fill="none" stroke="#fff" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="wordmark">Cyber<b>Safe</b></span>
+    </div>
+    <div class="conn" id="conn" title="Backend connection">
+      <span class="dot" id="connDot"></span><span id="connLabel">checking</span>
+    </div>
+  </header>
+
+  <section class="gauge-wrap">
+    <div class="gauge" id="gauge">
+      <svg viewBox="0 0 200 116" class="dial">
+        <path class="track" d="M20 100 A80 80 0 0 1 180 100"
+              fill="none" stroke-width="14" stroke-linecap="round"/>
+        <path class="value" id="valueArc" d="M20 100 A80 80 0 0 1 180 100"
+              fill="none" stroke-width="14" stroke-linecap="round"/>
+        <g id="needle" transform="rotate(-90 100 100)">
+          <line x1="100" y1="100" x2="100" y2="34" class="needle-line"/>
+          <circle cx="100" cy="100" r="6" class="needle-hub"/>
+        </g>
+      </svg>
+      <div class="readout">
+        <div class="score" id="score">--</div>
+        <div class="verdict" id="verdict">no scan yet</div>
+      </div>
+    </div>
+    <p class="scanned" id="scanned">Open an email in Gmail, or paste text below.</p>
+  </section>
+
+  <section class="reasons" id="reasonsPanel" hidden>
+    <h2 class="reasons-title">Why this score</h2>
+    <ul class="reason-list" id="reasonList"></ul>
+  </section>
+
+  <section class="actions">
+    <button class="btn primary" id="scanBtn">Scan this email</button>
+    <button class="btn ghost" id="pasteBtn">Check text</button>
+  </section>
+
+  <section class="paste-area" id="pasteArea" hidden>
+    <textarea id="pasteInput" rows="4"
+      placeholder="Paste an email or suspicious message here..."></textarea>
+    <button class="btn primary block" id="analyzeBtn">Analyze</button>
+  </section>
+
+  <footer class="tipbar">
+    <span class="tip-ico" aria-hidden="true">&#128161;</span>
+    <p class="tip" id="tip"></p>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
