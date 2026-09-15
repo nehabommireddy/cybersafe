@@ -193,5 +193,3 @@ CyberSafe is an educational and portfolio project rather than a production secur
 ## Why I Built This
 
 I built CyberSafe to explore the intersection of **software engineering, cybersecurity, and machine learning**. I wanted to create something that could apply an ML model to a practical security problem while still giving users understandable reasons behind the result.
-
-```
